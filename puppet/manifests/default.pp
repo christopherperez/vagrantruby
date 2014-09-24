@@ -35,7 +35,7 @@ class { 'apt_get_update':
 class install_mysql {
 
   class { '::mysql::server':
-    root_password    => ''
+    root_password    => 'default'
   }
 
 
@@ -84,16 +84,25 @@ package { 'zlib1g-dev':
 package { 'libncurses5-dev':
   ensure => installed
 }
- 
-#--- Webkit ---------------------------------------------------------------------
 
-# For ubuntu 14.04.1
-package { 'libqt5webkit5-dev':
+package { 'nodejs':
   ensure => installed
 }
 
-#For ubuntu 12.04
-#package { 'qtwebkit-opensource-src':
+package { 'build-essential':
+  ensure => installed
+}
+
+# Used for update-locale
+package { 'language-pack-es':
+  install_options => [ '-y'],
+  ensure => installed,
+} 
+
+
+# Webkit
+# For ubuntu 14.04.1
+#package { 'libqt5webkit5-dev':
 #  ensure => installed
 #}
 
@@ -106,6 +115,10 @@ package { ['libxml2', 'libxml2-dev', 'libxslt1-dev']:
   ensure => installed
 }
 
+package { 'rbenv':
+    install_options => [ '-y'],
+    ensure => installed,
+}
 
 # --- Ruby ---------------------------------------------------------------------
 
@@ -114,8 +127,16 @@ package { ['libxml2', 'libxml2-dev', 'libxslt1-dev']:
 class { 'rbenv': }
 rbenv::plugin { [ 'sstephenson/rbenv-vars', 'sstephenson/ruby-build' ]: }
 rbenv::build { '2.0.0-p247': global => true }
-#rbenv::gem { 'rails': ruby_version => '2.0.0-p247' }
 
+# Gems intalled with rbenv module
+rbenv::gem { 'rails': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'nokogiri': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'capybara': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'capybara-webkit': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'daemons': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'mechanize': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'awesome_nested_set': ruby_version => '2.0.0-p247' }
+rbenv::gem { 'will_paginate': ruby_version => '2.0.0-p247' }
 
 # To rvm install ----------------------
 #exec { 'install_rvm':

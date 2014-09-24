@@ -4,14 +4,13 @@
 # Not available on 12.04 official repositories
 # apt-get install -y libqt5webkit5-dev
 
-$dependency = <<DEPENDENCY
-apt-get install language-pack-es
+#$dependency = <<DEPENDENCY
+#DEPENDENCY
 
-DEPENDENCY
 
 Vagrant.configure('2') do |config|
-  config.vm.box      = 'ubuntu/trusty64'
-  config.vm.box_url  = 'https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box'
+  config.vm.box      = 'precise32'
+  #config.vm.box_url  = 'https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box'
   config.vm.hostname = 'licitatio'
 
 
@@ -28,7 +27,7 @@ Vagrant.configure('2') do |config|
   # Default value: false
   # config.ssh.forward_agent = true
   
-  config.vm.network :forwarded_port, guest: 3000, host: 3001
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -44,7 +43,7 @@ Vagrant.configure('2') do |config|
 
 
   #Added initial commands
-  config.vm.provision "shell", inline: $dependency, privileged: true
+  #config.vm.provision "shell", inline: $dependency, privileged: true
    
   # Autoinstall vguest of virtualbox
   # https://github.com/dotless-de/vagrant-vbguest
