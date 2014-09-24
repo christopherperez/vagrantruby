@@ -1,4 +1,5 @@
-# A Virtual Machine for Ruby on Rails Core Development - UBUNTU 12.04
+# A Virtual Machine for Ruby on Rails Core Development
+# UBUNTU 12.04
 
 ## Requirements
 
@@ -8,14 +9,12 @@
 
 ## How To Build The Virtual Machine
 
-    git clone https://github.com/
-    cd vagrant-mongo
-    git submodule init
-    git submodule update
-    vagrant up
-
-wait
-
+git clone https://github.com/
+cd vagrant-mongo
+git submodule init
+git submodule update
+vagrant up
+#wait
 vagrant ssh
 
 or
