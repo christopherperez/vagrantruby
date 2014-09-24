@@ -124,6 +124,8 @@ package { 'rbenv':
 
 # To rbenv install --------------------
 # https://forge.puppetlabs.com/jdowning/rbenv/readme
+# https://forge.puppetlabs.com/alup/rbenv    TO PROBE **
+
 class { 'rbenv': }
 rbenv::plugin { [ 'sstephenson/rbenv-vars', 'sstephenson/ruby-build' ]: }
 rbenv::build { '2.0.0-p247': global => true }
