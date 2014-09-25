@@ -28,6 +28,17 @@ class { 'apt_get_update':
 }
 
 
+# --- New user -----------------------------------------------------------------
+
+user { 'licitatio':
+  ensure => present,
+  shell => '/bin/bash',
+  home => '/home/licitatio',
+  managehome => true,
+  password => 'licitatio',
+}
+
+
 # --- MySQL --------------------------------------------------------------------
 #https://forge.puppetlabs.com/puppetlabs/mysql
 

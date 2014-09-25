@@ -10,3 +10,12 @@
 [submodule "puppet/modules/rbenv"]
 	path = puppet/modules/rbenv
 	url = https://github.com/justindowning/puppet-rbenv.git
+[submodule "puppet/modules/gcc"]
+	path = puppet/modules/gcc
+	url = https://github.com/puppetlabs/puppetlabs-gcc.git
+[submodule "puppet/modules/mysql"]
+	path = puppet/modules/mysql
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+[submodule "puppet/modules/wget"]
+	path = puppet/modules/wget
+	url = https://github.com/maestrodev/puppet-wget.git

@@ -24,11 +24,17 @@ function install_rbenv {
 	$as_licitatio "git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build"
 
 	$as_licitatio "rbenv install $rubyversion"
-	$as_licitatio "rbenv versions # See if already installed"
+	$as_licitatio "rbenv versions" # See if already installed
 
 	# Run the next command after you install a new version of Ruby, or install a gem that provides commands.
 	$as_licitatio "rbenv rehash" 
+
+	# Change ruby actual ruby version for recent installed
+	$as_licitatio "rbenv global $rubyversion"
+	$as_licitatio "ruby -v"	
+
 }
+
 
 function install_gems {
 	echo "rails@4.1.2"
