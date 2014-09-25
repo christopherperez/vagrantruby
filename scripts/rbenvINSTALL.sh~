@@ -2,19 +2,24 @@
 # Script to install rbenv
 
 rubyversion="2.0.0-p481"
-as_licitatio='sudo -u vagrant -H bash -l -c'
+as_licitatio='sudo -u licitatio -H bash -l -c'
 
 function install_rbenv {
 	# Guide on
 	# https://github.com/sstephenson/rbenv
+        home_licitatio=$(grep licitatio /etc/passwd | cut -d ":" -f6)
 
 	$as_licitatio "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv"
-	$as_licitatio "echo 'export PATH=\"$HOME/.rbenv/bin:$PATH\"' >> ~/.bashrc"
-
-	$as_licitatio "echo 'eval \"$(rbenv init -)\"' >> ~/.bashrc"
+	
+	
+	$as_licitatio "echo 'export PATH=\"$home_licitatio/.rbenv/bin:$PATH\"' >> $home_licitatio/.bashrc"
+        
+        chmod o+w $home_licitatio.bashrc
+	echo 'eval "$(rbenv init -)"' >> $home_licitatio/.bashrc
+	chmod o-w $home_licitatio.bashrc
 
 	# We need to reload the shell
-	$as_licitatio "source ~/.bashrc"
+	source $home_licitatio/.bashrc
 
 	$as_licitatio "type rbenv"
 

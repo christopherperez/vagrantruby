@@ -7,9 +7,10 @@
 #$dependency = <<DEPENDENCY
 #DEPENDENCY
 
+VAGRANT_COMMAND = ARGV[0]
 
 Vagrant.configure('2') do |config|
-  config.vm.box      = 'precise32'
+  config.vm.box      = 'hashicorp/precise32'
   #config.vm.box_url  = 'https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box'
   config.vm.hostname = 'licitatio'
 
@@ -73,5 +74,6 @@ Vagrant.configure('2') do |config|
   config.vm.provision :shell do |shell|
      shell.path = "scripts/rbenvINSTALL.sh"
   end
+
 
 end

@@ -3,18 +3,24 @@
 
 rubyversion="2.0.0-p481"
 as_licitatio='sudo -u licitatio -H bash -l -c'
+home_licitatio=$(grep licitatio /etc/passwd | cut -d ":" -f6)
 
 function install_rbenv {
 	# Guide on
 	# https://github.com/sstephenson/rbenv
+        
 
 	$as_licitatio "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv"
-	$as_licitatio "echo 'export PATH=\"$HOME/.rbenv/bin:$PATH\"' >> ~/.bashrc"
-
-	$as_licitatio "echo 'eval \"$(rbenv init -)\"' >> ~/.bashrc"
+	
+	
+	$as_licitatio "echo 'export PATH=\"$home_licitatio/.rbenv/bin:$PATH\"' >> $home_licitatio/.bashrc"
+        
+        chmod o+w $home_licitatio.bashrc
+	echo 'eval "$(rbenv init -)"' >> $home_licitatio/.bashrc
+	chmod o-w $home_licitatio.bashrc
 
 	# We need to reload the shell
-	$as_licitatio "source ~/.bashrc"
+	source $home_licitatio/.bashrc
 
 	$as_licitatio "type rbenv"
 
@@ -38,21 +44,21 @@ function install_rbenv {
 
 function install_gems {
 	echo "rails@4.1.2"
-	$as_licitatio "gem install rails -v 4.1.2"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install rails -v 4.1.2"
 	echo "nokogiri"
-	$as_licitatio "gem install nokogiri"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install nokogiri"
 	echo "capybara"
-	$as_licitatio "gem install capybara"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install capybara"
 	echo "capybara-webkit"
-	$as_licitatio "gem install capybara-webkit"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install capybara-webkit"
 	echo "daemons"
-	$as_licitatio "gem install daemons"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install daemons"
 	echo "mechanize"
-	$as_licitatio "gem install mechanize"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install mechanize"
 	echo "awesome_nested_set"
-	$as_licitatio "gem install awesome_nested_set"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install awesome_nested_set"
 	echo "will_paginate"
-	$as_licitatio "gem install will_paginate"
+	$as_licitatio "$home_licitatio/.rbenv/versions/$rubyversion/bin/gem install will_paginate"
 }
 
 echo "rbenv install with $rubyversion"
