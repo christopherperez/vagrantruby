@@ -66,5 +66,12 @@ Vagrant.configure('2') do |config|
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
     puppet.module_path    = 'puppet/modules'	
+    puppet.options = ['--verbose']
   end
+
+  #Install rbenv with bash script.
+  config.vm.provision :shell do |shell|
+     shell.path = "scripts/rbenvINSTALL.sh"
+  end
+
 end

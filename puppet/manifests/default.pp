@@ -115,30 +115,25 @@ package { ['libxml2', 'libxml2-dev', 'libxslt1-dev']:
   ensure => installed
 }
 
-package { 'rbenv':
-    install_options => [ '-y'],
-    ensure => installed,
-}
 
 # --- Ruby ---------------------------------------------------------------------
 
 # To rbenv install --------------------
 # https://forge.puppetlabs.com/jdowning/rbenv/readme
-# https://forge.puppetlabs.com/alup/rbenv    TO PROBE **
 
-class { 'rbenv': }
-rbenv::plugin { [ 'sstephenson/rbenv-vars', 'sstephenson/ruby-build' ]: }
-rbenv::build { '2.0.0-p247': global => true }
+#class { 'rbenv': }
+#rbenv::plugin { [ 'sstephenson/rbenv-vars', 'sstephenson/ruby-build' ]: }
+#rbenv::build { '2.0.0-p247': global => true }
 
 # Gems intalled with rbenv module
-rbenv::gem { 'rails': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'nokogiri': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'capybara': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'capybara-webkit': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'daemons': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'mechanize': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'awesome_nested_set': ruby_version => '2.0.0-p247' }
-rbenv::gem { 'will_paginate': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'rails': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'nokogiri': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'capybara': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'capybara-webkit': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'daemons': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'mechanize': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'awesome_nested_set': ruby_version => '2.0.0-p247' }
+#rbenv::gem { 'will_paginate': ruby_version => '2.0.0-p247' }
 
 # To rvm install ----------------------
 #exec { 'install_rvm':
