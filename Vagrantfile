@@ -73,6 +73,7 @@ Vagrant.configure('2') do |config|
   #Install rbenv with bash script.
   config.vm.provision :shell do |shell|
      shell.path = "scripts/rbenvINSTALL.sh"
+     config.vm.synced_folder '.', '/home/vagrant/myapp'
   end
 
 

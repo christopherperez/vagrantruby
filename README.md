@@ -8,33 +8,31 @@
 
 ## How To Build The Virtual Machine
 
-    git clone https://github.com/
-    cd vagrant-mongo
+    git clone https://github.com/christopherperez/vagrantruby.git
+    cd vagrantruby
     git submodule init
     git submodule update
     vagrant up
 
 wait
 
-vagrant ssh
-
+vagrant ssh 
 or
-
 ssh vagrant@192.168.40.100
 
 ## What's In The Box
 
 * Git
 
-* Ruby 2.0.0
+* Ruby 2.0.0 on rbenv 
 
 * MySQL with 'default' ass root password | with puppet
 
 * System packets: autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libxslt-dev libxml2-dev libxml2 libqt5webkit5-dev qt-sdk nodejs build-essential
 
-* rbenv with puppet
-
-* gems installed: rails@4.1.2 nokogiri capybara capybara-webkit daemons awesome_nested_set will_paginate
+* Script for rbenv install (https://github.com/sstephenson/rbenv)
+	* to licitatio user (not vagrant)
+	* gems installed: rails@4.1.2 nokogiri capybara capybara-webkit daemons awesome_nested_set will_paginate mechanize
 
 
 ## Virtual Machine Management
@@ -54,3 +52,6 @@ ssh vagrant@192.168.40.100
 Please check the [Vagrant documentation](http://docs.vagrantup.com/v2/) for more information on Vagrant.
 
 
+## Tested on
+
+* Ubuntu 12.04 hashicorp/precise32 virtualbox
