@@ -20,6 +20,14 @@ vagrant ssh
 or
 ssh vagrant@192.168.40.100
 
+
+###In some weird mysterious cases ruby version for "licitatio" user not change to 2.0.0 ruby version. You must:
+
+    vagrant ssh
+    sudo su licitatio
+    rbenv local 2.0.0-p481
+
+
 ## What's In The Box
 
 * Git

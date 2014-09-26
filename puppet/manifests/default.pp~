@@ -28,6 +28,17 @@ class { 'apt_get_update':
 }
 
 
+# --- New user -----------------------------------------------------------------
+
+user { 'licitatio':
+  ensure => present,
+  shell => '/bin/bash',
+  home => '/home/licitatio',
+  managehome => true,
+  password => 'licitatio',
+}
+
+
 # --- MySQL --------------------------------------------------------------------
 #https://forge.puppetlabs.com/puppetlabs/mysql
 
@@ -102,11 +113,7 @@ package { 'language-pack-es':
 
 # Webkit
 # For ubuntu 14.04.1
-#package { 'libqt5webkit5-dev':
-#  ensure => installed
-#}
-
-package { 'qt-sdk':
+package { ['libqt5webkit5-dev', 'qt-sdk']:
   ensure => installed
 }
 

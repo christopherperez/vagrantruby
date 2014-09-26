@@ -10,8 +10,12 @@
 VAGRANT_COMMAND = ARGV[0]
 
 Vagrant.configure('2') do |config|
-  config.vm.box      = 'hashicorp/precise32'
+  # To use ubuntu 12.04 uncomment
+  #config.vm.box      = 'hashicorp/precise32'
   #config.vm.box_url  = 'https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box'
+
+  config.vm.box      = 'ubuntu/trusty64'
+
   config.vm.hostname = 'licitatio'
 
 
