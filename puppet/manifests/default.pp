@@ -125,46 +125,6 @@ package { ['libxml2', 'libxml2-dev', 'libxslt1-dev']:
 
 # --- Ruby ---------------------------------------------------------------------
 
-# To rbenv install --------------------
-# https://forge.puppetlabs.com/jdowning/rbenv/readme
-
-#class { 'rbenv': }
-#rbenv::plugin { [ 'sstephenson/rbenv-vars', 'sstephenson/ruby-build' ]: }
-#rbenv::build { '2.0.0-p247': global => true }
-
-# Gems intalled with rbenv module
-#rbenv::gem { 'rails': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'nokogiri': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'capybara': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'capybara-webkit': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'daemons': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'mechanize': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'awesome_nested_set': ruby_version => '2.0.0-p247' }
-#rbenv::gem { 'will_paginate': ruby_version => '2.0.0-p247' }
-
-# To rvm install ----------------------
-#exec { 'install_rvm':
-#  command => "${as_vagrant} 'curl -L https://get.rvm.io | bash -s stable'",
-#  creates => "${home}/.rvm/bin/rvm",
-#  require => Package['curl']
-#}
-
-#exec { 'install_ruby':
-# We run the rvm executable directly because the shell function assumes an
-# interactive environment, in particular to display messages or ask questions.
-# The rvm executable is more suitable for automated installs.
-#
-# use a ruby patch level known to have a binary
-#  command => "${as_vagrant} '${home}/.rvm/bin/rvm install ruby-${ruby_version} --binary --autolibs=enabled && rvm alias create default ${ruby_version}'",
-#  creates => "${home}/.rvm/bin/ruby",
-#  require => Exec['install_rvm']
-#}
-
-# RVM installs a version of bundler, but for edge Rails we want the most recent one.
-#exec { "${as_vagrant} 'gem install bundler --no-rdoc --no-ri'":
-#  creates => "${home}/.rvm/bin/bundle",
-#  require => Exec['install_ruby']
-#}
 
 # --- Locale -------------------------------------------------------------------
 
